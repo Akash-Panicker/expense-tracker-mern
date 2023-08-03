@@ -4,12 +4,17 @@ import cors from 'cors';
 
 const app = express()
 const PORT = 4000;
-app.use(cors);
+app.use(cors());
 
 await mongoose.connect('mongodb+srv://akash:godzilla123@cluster0.bnp8099.mongodb.net/?retryWrites=true&w=majority');
 console.log("Mongo Connected Succesflly");
 
 app.get('/',(req,res)=>{
+    res.json({message : "Hello"});
+})
+
+
+app.post('/transaction',(req,res)=>{
     res.send("Hello");
 })
 

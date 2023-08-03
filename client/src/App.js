@@ -10,9 +10,10 @@ function App() {
     e.preventDefault();
     const res = await fetch('http://localhost:4000/transaction', {
       method: "POST",
-      body: form,
+      body: JSON.stringify(form),
     });
-    console.log(res);
+    const data = await res.json();
+    console.log(data);
   };
   function handleInput(e) {
     setform({ ...form, [e.target.name]: e.target.value });
